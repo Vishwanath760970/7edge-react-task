@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './arrayStyles.css';
 
 const SortedArray = ({ arr }) => {
   const [display, setDisplay] = useState(false);
@@ -41,13 +42,13 @@ const SortedArray = ({ arr }) => {
   };
 
   return (
-    <div>
-      <h4>i am sorted array</h4>
-      <button className='btn btn-warning' onClick={handleDisplay}>
+    <div className='col-12 col-sm-8 col-md-8 col-lg-10 col-xl-12 text-center m-2'>
+      <h3>I am sorted array</h3>
+      <button className='btn btn-warning m-3' onClick={handleDisplay}>
         Sort
       </button>
       {display && (
-        <div className='sorted-array'>
+        <div className='sorted-array m-3'>
           {sortedArr.length >= 1 &&
             sortFunc().map((item, i) => {
               return (
