@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+import UnsortedArray from './components/UnsortedArray';
+import SortedArray from './components/SortedArray';
+
+export default function App() {
+  const [arr, setArr] = useState([]);
+  const [inputText, setInputText] = useState('');
+
+  const handleInput = (e) => {
+    const result = e.target.value;
+    setInputText(result);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setArr([...arr, inputText]);
+    setInputText('');
+  };
+
+  // console.log(arr, 'array');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App '>
+      <h1>Array sort</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Array Number </label>
+          <input
+            type='text'
+            value={inputText}
+            onChange={handleInput}
+            placeholder='enter number to add'
+          />
+        </div>
+        <input
+          className='btn btn-primary pt-5'
+          type='submit'
+          value='add number'
+        />
+      </form>
+      <UnsortedArray arr={arr} />
+      <SortedArray arr={arr} />
     </div>
   );
 }
-
-export default App;
