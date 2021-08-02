@@ -53,9 +53,9 @@ const SortedArray = ({ arr }) => {
             sortFunc().map((item, i) => {
               return (
                 <div key={i} className='array-item'>
-                  <p>
+                  <h2>
                     <strong>{item}</strong>
-                  </p>
+                  </h2>
                 </div>
               );
             })}

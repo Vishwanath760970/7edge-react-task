@@ -10,10 +10,10 @@ const UnsortedArray = ({ arr }) => {
         {arr.length >= 1 &&
           arr.map((item, i) => {
             return (
-              <div key={i} className='array-item'>
-                <p>
+              <div key={i} className='array-item '>
+                <h2>
                   <strong>{item}</strong>
-                </p>
+                </h2>
               </div>
             );
           })}
